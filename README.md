@@ -1,2 +1,8 @@
 # jcompany2
-Desenvolvimento de App da Jcompany
+Desenvolvimento do App da Jcompany
+
+Para rodar pela primeira vez:
+* npm install
+* cordova platform add android
+* chmod +x init.sh
+* ./init.sh
