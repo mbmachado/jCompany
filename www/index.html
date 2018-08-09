@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
 
         <title>Postal Express</title>
     </head>
     <body>
         <div class="navbar-fixed">
-            <nav>
+            <nav class="white">
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo"><img src="../img/logo.png"></a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="sass.html">Sass</a></li>
-                        <li><a href="badges.html">Components</a></li>
-                        <li><a href="collapsible.html">JavaScript</a></li>
-                    </ul>
+                    <a href="#!" class="brand-logo center">
+                        <div class="valign-wrapper">
+                            <img src="img/nav.png">
+                        </div>
+                    </a>
+                    <a href="#" data-target="slide-out" class="sidenav-trigger cyan-text text-lighten-2"><i class="material-icons">menu</i></a>
                 </div>
             </nav>
-
-            <ul id="slide-out" class="sidenav">
-                <li>
-                    <div class="user-view">
-                        <div class="background">
-                            <img src="images/office.jpg">
-                        </div>
-                        <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-                        <a href="#name"><span class="white-text name">John Doe</span></a>
-                        <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-                    </div>
-                </li>
-                <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-                <li><a href="#!">Second Link</a></li>
-                <li><div class="divider"></div></li>
-                <li><a class="subheader">Subheader</a></li>
-                <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-            </ul>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-
         </div>
+
+        <ul id="slide-out" class="sidenav">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img src="img/material-background.jpg">
+                    </div>
+                    <a href="#user"><img class="circle" src="img/yuna.jpg"></a>
+                    <a href="#name"><span class="white-text name">Postal Express</span></a>
+                    <a href="#email"><span class="white-text email"></span></a>
+                </div>
+            </li>
+            <li><a class="waves-effect" href="#!"><i class="material-icons">home</i>Início</a></li>
+            <li><a class="waves-effect" href="#!"><i class="material-icons">settings</i>Configurar</a></li>
+            <li><a class="waves-effect" href="#!"><i class="material-icons">info</i>Institucional</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Créditos</a></li>
+            <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i>Jcompany TI</a></li>
+        </ul>
+        
+        <div class="row">
+            <div class="col s12">
+                <div class="card-panel cyan lighten-2">
+                    <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                    </span>
+                </div>
+            </div>
+        </div>
+
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
