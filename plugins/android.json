@@ -12,6 +12,18 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.jcompany.com"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.jcompany.com"
+    },
+    "cordova-plugin-headercolor": {
+      "PACKAGE_NAME": "com.jcompany.com"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.jcompany.com"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.jcompany.com"
     }
   },
   "dependent_plugins": {}
