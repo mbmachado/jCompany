@@ -11,16 +11,16 @@
 
         <title>Postal Express</title>
     </head>
-    <body>
+    <body id="app-body">
         <div class="navbar-fixed">
-            <nav class="white">
+            <nav id="app-navbar">
                 <div class="nav-wrapper">
                     <a href="#!" class="brand-logo center">
                         <div class="valign-wrapper">
                             <img width="126" height="37" src="img/nav.png">
                         </div>
                     </a>
-                    <a href="#" data-target="slide-out" class="sidenav-trigger cyan-text text-lighten-2"><i class="material-icons">menu</i></a>
+                    <a id="hb-btn" href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 </div>
             </nav>
         </div>
@@ -31,25 +31,41 @@
                     <div class="background">
                         <img src="img/material-background.jpg">
                     </div>
-                    <a href="#user"><img class="circle" src="img/sidenav.png"></a>
-                    <a href="#name"><span class="white-text name">Postal Express</span></a>
-                    <a href="#email"><span class="white-text email"></span></a>
+                    <a href="#"><img class="circle" src="img/sidenav.png"></a>
+                    <a href="#"><span class="white-text name">Postal Express</span></a>
+                    <a href="#"><span class="white-text email"></span></a>
                 </div>
             </li>
-            <li class="active"><a class="waves-effect" href="#!"><i class="material-icons">home</i>Início</a></li>
-            <li><a class="waves-effect" href="#!"><i class="material-icons">settings</i>Configurar</a></li>
-            <li><a class="waves-effect" href="#!"><i class="material-icons">info</i>Institucional</a></li>
+            <li id="home-btn" class="active"><a class="waves-effect" href="#!"><i class="material-icons">home</i>Início</a></li>
+            <li id="settings-btn"><a class="waves-effect" href="#!"><i class="material-icons">settings</i>Configurar</a></li>
+            <li id="institution-btn"><a class="waves-effect" href="#!"><i class="material-icons">info</i>Institucional</a></li>
             <li><div class="divider"></div></li>
             <li><a class="subheader">Créditos</a></li>
             <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i>Jcompany TI</a></li>
         </ul>
         
-        <div class="row">
-            <div class="col s12">
-                <div class="card-panel cyan lighten-2">
-                    <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+        <div id="main-content" class="row">
+            <div id="home-section" class="col s12">
+                <div class="card-panel white">
+                    <span>I am a very simple card. I am good at containing small bits of information.
                     I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
                     </span>
+                </div>
+            </div>
+            <div id="settings-section" class="col s12">
+                <div class="card-panel">
+                    <span>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                    </span>
+                </div>
+            </div>
+            <div id="institution-section" class="col s12">
+                <div class="featured-img">
+                    <img src="img/destaque-institucional.jpg" alt="Imagem de destaque">
+                    <h4 class="white-text">Institucional</h4>
+                    <div id="institution-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora accusantium, culpa fuga, quis laboriosam repellat amet eveniet similique! Cumque perspiciatis voluptatum voluptates iusto maiores! Ut iusto, quis aliquam voluptates nam?</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,6 +82,7 @@
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>

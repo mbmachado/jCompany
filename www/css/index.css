@@ -22,3 +22,35 @@ body {
 .background > img {
     width: 100%;
 }
+
+#main-content {
+	padding-bottom: 0;
+}
+
+#settings-section, #institution-section {
+	display: none;
+}
+
+.featured-img {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.featured-img img {
+	width: 100%;
+}
+
+.featured-img h4 {
+	position: absolute;
+	bottom: 5px;
+	left: 10px;
+}
+
+#institution-text {
+	bottom: -160px;
+	left: 0;
+	padding: 10px;
+	position: absolute;
+	width: 100%;
+}
