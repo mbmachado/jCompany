@@ -23,12 +23,35 @@ body {
     width: 100%;
 }
 
-#main-content {
-	padding-bottom: 0;
+#home-section {
+	height: 100vh;
+	left: 0;
+	overflow: hidden;
+	padding: 56px 0 0 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+#home-section .progress {
+	left: 0;
+	margin: 0 !important;
+	position: absolute;
+	top: 56px;
+}
+
+#app-frame {
+	width: 100%;
+	height: 100%;
+	border: none;
 }
 
 #settings-section, #institution-section {
 	display: none;
+}
+
+#settings-section .card-panel {
+	margin-top: .75rem !important;
 }
 
 .featured-img {
@@ -41,16 +64,43 @@ body {
 	width: 100%;
 }
 
-.featured-img h4 {
+.featured-img span {
 	position: absolute;
-	bottom: 5px;
+	bottom: 15px;
 	left: 10px;
 }
 
 #institution-text {
 	bottom: -160px;
 	left: 0;
-	padding: 10px;
+	padding: 15px;
 	position: absolute;
 	width: 100%;
 }
+
+@media screen and (min-width: 430px) {
+	#institution-text {
+		bottom: -140px;
+	}
+}
+
+@media screen and (min-width: 530px) {
+	#institution-text {
+		bottom: -120px;
+	}
+}
+
+.section-title {
+	font-size: 24px;
+	font-weight: 300;
+	display: block;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.no-margin {
+	margin: 0 !important;
+}
+

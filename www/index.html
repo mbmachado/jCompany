@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/material-icons.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/index.css">
 
         <title>Postal Express</title>
@@ -20,7 +21,7 @@
                             <img width="126" height="37" src="img/nav.png">
                         </div>
                     </a>
-                    <a id="hb-btn" href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <a id="hb-btn" href="#" data-target="slide-out" class="waves-effect sidenav-trigger"><i class="material-icons">menu</i></a>
                 </div>
             </nav>
         </div>
@@ -41,28 +42,47 @@
             <li id="institution-btn"><a class="waves-effect" href="#!"><i class="material-icons">info</i>Institucional</a></li>
             <li><div class="divider"></div></li>
             <li><a class="subheader">Créditos</a></li>
-            <li><a class="waves-effect" href="#!"><i class="material-icons">cloud</i>Jcompany TI</a></li>
+            <li><a class="waves-effect" href="#!"><i class="material-icons">business_center</i>Jcompany TI</a></li>
         </ul>
         
-        <div id="main-content" class="row">
+        <div id="main-content" class="row no-margin no-padding">
             <div id="home-section" class="col s12">
-                <div class="card-panel white">
-                    <span>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                    </span>
+                <div class="progress cyan lighten-5">
+                    <div class="indeterminate cyan lighten-2"></div>
                 </div>
+                <iframe id="app-frame" src="http://brasil.glotes.com.br/login"></iframe>
             </div>
             <div id="settings-section" class="col s12">
                 <div class="card-panel">
-                    <span>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-                    </span>
+                    <div class="row">
+                        <div class="col s12">
+                            <span class="section-title">Cadastro de endereço</span>
+                            <span>Cadastre aqui o endereço do servidor que será fornecido pela equipe da JCompany</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <form id="app-form" class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="url-input" type="text" autocomplete="off">
+                                    <label for="url-input">Endereço</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 center">
+                                    <button class="btn waves-effect waves-light cyan lighten-2" type="submit" name="action">Salvar
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div id="institution-section" class="col s12">
                 <div class="featured-img">
                     <img src="img/destaque-institucional.jpg" alt="Imagem de destaque">
-                    <h4 class="white-text">Institucional</h4>
+                    <span class="section-title white-text">Institucional</span>
                     <div id="institution-text">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora accusantium, culpa fuga, quis laboriosam repellat amet eveniet similique! Cumque perspiciatis voluptatum voluptates iusto maiores! Ut iusto, quis aliquam voluptates nam?</p>
                     </div>
