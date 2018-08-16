@@ -19,6 +19,7 @@ var app = {
 		var progressBar = $('#home-section .progress');
 		var settingsSection = $('#settings-section');
 		var appForm = $('#app-form');
+		var appInput = $('#url-input')
 		var institutionSection = $('#institution-section');
 		var featuredImg = $('.featured-img');
 		var institutionText = $('#institution-text');
@@ -30,30 +31,9 @@ var app = {
 		var cyan = '#4DD0E1';
 		var white = '#FFF';
 		var transparent = 'rgba(0,0,0,0.4)';
+		var offlineConfirmation = false;
 
-		sidenav.sidenav();
-		tapTarget.tapTarget();
-
-		if(window.localStorage.getItem("first-time") == undefined) {
-			tapTarget.tapTarget('open');
-			window.localStorage.setItem("first-time", 1);
-		} else {
-			discovery.hide('fast');
-		}
-
-		if(navigator.connection.type == Connection.NONE) {
-			var count = 1;
-			appFrame.css('display', 'none');
-			var tryingToReconnect = setInterval(function() { 
-				if(navigator.connection.type != Connection.NONE) {
-					appFrame.src = appFrame.src;
-					appFrame.css('display', 'block');
-					clearInterval(tryToReconnect);
-				} else {
-					navigator.notification.alert('Tentando reconectar ('+(count++)+')...', function(){}, 'Sem conexão', 'Ok');
-				}
-			}, 15000);
-		}
+		appBegin();
 
 		homeBtn.on('click', function(event) {
 			event.preventDefault();
@@ -86,6 +66,9 @@ var app = {
 			hbBtn.animate({color: cyan}, 0);
 			navLogo.css('display', 'block');
 			StatusBar.backgroundColorByHexString("#bdbdbd");
+			
+			var url = window.localStorage.getItem("url");
+		    appInput.val(url.substring(7)).focus();
 		});
 		institutionBtn.on('click', function(event) {
 			event.preventDefault();
@@ -106,18 +89,93 @@ var app = {
 
 		discoveryTrigger.on('click', function(event) {
 			event.preventDefault();
+			discovery.css('display', 'none');
 			settingsBtn.trigger("click");
 		});
 
 		appForm.on('submit', function(event) {
 			event.preventDefault();
-			navigator.notification.alert('Função em desenvolvimento', function(){}, 'Em breve', 'Ok');
+			localStorage();
 		});
 
 		appFrame.on('load', function(event) {
 			event.preventDefault();
 			progressBar.css('display', 'none');
-		});		
+		});
+
+		document.addEventListener("offline", onOffline, false);		
+		document.addEventListener("online", onOnline, false);
+
+		function onOffline() {
+			var count = 1;
+			appFrame.css('display', 'none');
+			progressBar.css('display', 'block');
+			if (!offlineConfirmation) {
+				navigator.notification.alert('Tentando reconectar ('+(count++)+')...', offlineConfirmed, 'Sem conexão', 'Ok');
+				offlineConfirmation = true;
+			}
+			var tryingToReconnect = setInterval(function() { 
+				if(navigator.connection.type != Connection.NONE) {
+					clearInterval(tryToReconnect);
+				} else {
+					if (!offlineConfirmation) {
+						navigator.notification.alert('Tentando reconectar ('+(count++)+')...', offlineConfirmed, 'Sem conexão', 'Ok');
+						offlineConfirmation = true;
+					}
+				}
+			}, 12000);
+		}
+
+		function onOnline() {
+			console.log("hello");
+			appFrame.attr('src', 'http://brasil.glotes.com.br/login');
+			appFrame.css('display', 'block');
+		}
+
+		function offlineConfirmed() {
+			offlineConfirmation = false;
+		}
+
+		function localStorage() {
+	        var er = new RegExp('[a-z|0-9]+\\.glotes\\.com\\.br$');
+	        var url = appInput.val();
+
+	        if(!(url.substring(0,7) == "http://" || url.substring(0,8) == "https://")) {
+	            url = "http://" + url; 
+	        }
+
+	        if(er.test(url)) {
+	            window.localStorage.setItem("url", url);
+	            navigator.notification.alert('Endereço cadastrado!', function(){}, 'Sucesso','Ok');
+	        } else {
+	            window.localStorage.setItem("url", "http://brasil.glotes.com.br");
+	            navigator.notification.alert('Endereço inserido não é permitido. Endereço padrão foi configurado no lugar.', function(){},'Erro','Ok');
+	            appInput.val("brasil.glotes.com.br");
+	        }
+	    }
+
+	    function appBegin() {
+	        sidenav.sidenav();
+			tapTarget.tapTarget();
+
+	        if (window.localStorage.getItem("url") == undefined) {
+	        	appFrame.attr("src", "http://brasil.glotes.com.br");
+	        	window.localStorage.setItem("url", "http://brasil.glotes.com.br");
+	        } else {
+	        	appFrame.attr("src", window.localStorage.getItem("url"));
+	        }
+
+			if(window.localStorage.getItem("first-time") == undefined) {
+				tapTarget.tapTarget('open');
+				window.localStorage.setItem("first-time", 1);
+			} else {
+				discovery.css('display', 'none');
+			}
+
+			if(navigator.connection.type == Connection.NONE) {
+				onOffline();
+			}
+	    }
 	}
 };
 

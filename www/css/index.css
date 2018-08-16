@@ -17,6 +17,7 @@ body {
 
 .nav-wrapper > a:first-child, .nav-wrapper > a:first-child > div {
     height: 100%;
+    outline: none;
 }
 
 .background > img {
@@ -71,22 +72,22 @@ body {
 }
 
 #institution-text {
-	bottom: -160px;
+	bottom: -210px;
 	left: 0;
 	padding: 15px;
 	position: absolute;
 	width: 100%;
 }
 
-@media screen and (min-width: 430px) {
+@media screen and (min-width: 373px) {
 	#institution-text {
-		bottom: -140px;
+		bottom: -170px;
 	}
 }
 
 @media screen and (min-width: 530px) {
 	#institution-text {
-		bottom: -120px;
+		bottom: -140px;
 	}
 }
 
@@ -104,3 +105,6 @@ body {
 	margin: 0 !important;
 }
 
+.settings-description {
+	display: block;
+}
