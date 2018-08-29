@@ -2,7 +2,7 @@
 <widget id="com.jcompany.com" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Postal Express</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Aplicação do Sistema Postal Express
     </description>
     <author email="barbgluz@gmail.com">
         Gabriele Luz &amp; Mateus Barbosa
