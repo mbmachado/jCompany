@@ -1,5 +1,5 @@
 var app = {
-  
+
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
@@ -66,7 +66,7 @@ var app = {
 			hbBtn.animate({color: cyan}, 0);
 			navLogo.css('display', 'block');
 			StatusBar.backgroundColorByHexString("#bdbdbd");
-			
+
 			var url = window.localStorage.getItem("url");
 		    appInput.val(url.substring(7)).focus();
 		});
@@ -103,7 +103,7 @@ var app = {
 			progressBar.css('display', 'none');
 		});
 
-		document.addEventListener("offline", onOffline, false);		
+		document.addEventListener("offline", onOffline, false);
 		document.addEventListener("online", onOnline, false);
 
 		function onOffline() {
@@ -114,7 +114,7 @@ var app = {
 				navigator.notification.alert('Tentando reconectar ('+(count++)+')...', offlineConfirmed, 'Sem conexão', 'Ok');
 				offlineConfirmation = true;
 			}
-			var tryingToReconnect = setInterval(function() { 
+			var tryingToReconnect = setInterval(function() {
 				if(navigator.connection.type != Connection.NONE) {
 					clearInterval(tryToReconnect);
 				} else {
@@ -128,7 +128,7 @@ var app = {
 
 		function onOnline() {
 			console.log("hello");
-			appFrame.attr('src', 'http://brasil.glotes.com.br/login');
+			appFrame.attr('src', 'http://app-transaereo.sistemapostal.com.br/login');
 			appFrame.css('display', 'block');
 		}
 
@@ -137,20 +137,20 @@ var app = {
 		}
 
 		function localStorage() {
-	        var er = new RegExp('[a-z|0-9]+\\.glotes\\.com\\.br$');
+	        var er = new RegExp('[a-z|0-9]+\\.sistemapostal\\.com\\.br$');
 	        var url = appInput.val();
 
 	        if(!(url.substring(0,7) == "http://" || url.substring(0,8) == "https://")) {
-	            url = "http://" + url; 
+	            url = "http://" + url;
 	        }
 
 	        if(er.test(url)) {
 	            window.localStorage.setItem("url", url);
 	            navigator.notification.alert('Endereço cadastrado!', function(){}, 'Sucesso','Ok');
 	        } else {
-	            window.localStorage.setItem("url", "http://brasil.glotes.com.br");
+	            window.localStorage.setItem("url", "http://app-transaereo.sistemapostal.com.br/login");
 	            navigator.notification.alert('Endereço inserido não é permitido. Endereço padrão foi configurado no lugar.', function(){},'Erro','Ok');
-	            appInput.val("brasil.glotes.com.br");
+	            appInput.val("app-transaereo.sistemapostal.com.br/login");
 	        }
 	    }
 
@@ -159,8 +159,8 @@ var app = {
 			tapTarget.tapTarget();
 
 	        if (window.localStorage.getItem("url") == undefined) {
-	        	appFrame.attr("src", "http://brasil.glotes.com.br");
-	        	window.localStorage.setItem("url", "http://brasil.glotes.com.br");
+	        	appFrame.attr("src", "http://app-transaereo.sistemapostal.com.br/login");
+	        	window.localStorage.setItem("url", "http://app-transaereo.sistemapostal.com.br/login");
 	        } else {
 	        	appFrame.attr("src", window.localStorage.getItem("url"));
 	        }
