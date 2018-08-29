@@ -116,7 +116,7 @@ var app = {
 			}
 			var tryingToReconnect = setInterval(function() {
 				if(navigator.connection.type != Connection.NONE) {
-					clearInterval(tryToReconnect);
+					clearInterval(tryingToReconnect);
 				} else {
 					if (!offlineConfirmation) {
 						navigator.notification.alert('Tentando reconectar ('+(count++)+')...', offlineConfirmed, 'Sem conexão', 'Ok');

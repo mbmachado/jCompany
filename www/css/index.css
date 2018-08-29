@@ -108,3 +108,19 @@ body {
 .settings-description {
 	display: block;
 }
+
+#url-container {
+	position: relative;
+}
+
+#url-domain {
+	color: #9E9E9E;
+	position: absolute;
+	right: 12px;
+	top: 10px;
+}
+
+#url-input {
+	padding-right: 150px;
+	box-sizing: border-box;
+}
