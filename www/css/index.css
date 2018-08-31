@@ -117,10 +117,11 @@ body {
 	color: #9E9E9E;
 	position: absolute;
 	right: 12px;
-	top: 10px;
+	top: 11px;
 }
 
 #url-input {
-	padding-right: 150px;
+	padding-right: 145px;
 	box-sizing: border-box;
+	color: rgb(0, 0, 0);
 }
