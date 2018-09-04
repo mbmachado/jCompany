@@ -151,15 +151,18 @@ var app = {
 	        		errorCount++;
 		            navigator.notification.alert('Endereço inserido não é permitido. Endereço padrão foi configurado no lugar.', function(){},'Erro','Ok');
 	        	}
-	            window.localStorage.setItem("subdomain", "app-transaereo");
-	            appInput.val("app-transaereo");
+	            window.localStorage.setItem("subdomain", "app-avaliacao");
+	            appInput.val("app-avaliacao");
 	        }
 
 	        appFrame.attr("src", getUrl());
 	    }
 
 	    function getUrl() {
-	    	return "http://" + window.localStorage.getItem("subdomain") + ".sistemapostal.com.br";
+            if (window.localStorage.getItem("subdomain")) {
+    	    	return "http://" + window.localStorage.getItem("subdomain") + ".sistemapostal.com.br";
+            }
+    	    	return "http://sistemapostal.com.br";
 	    }
 
 	    function appBegin() {
@@ -167,8 +170,8 @@ var app = {
 			tapTarget.tapTarget();
 
 	        if (window.localStorage.getItem("subdomain") == undefined) {
-	        	window.localStorage.setItem("subdomain", "app-transaereo");
-	        	appFrame.attr("src", "http://app-transaereo.sistemapostal.com.br");
+	        	window.localStorage.setItem("subdomain", "app-avaliacao");
+	        	appFrame.attr("src", "http://sistemapostal.com.br");
 	        } else {
 	        	appFrame.attr("src", getUrl());
 	        }
